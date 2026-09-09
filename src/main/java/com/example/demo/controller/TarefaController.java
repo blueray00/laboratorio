@@ -26,6 +26,14 @@ public class TarefaController {
         System.out.println("[CONTROLLER] Requisição recebida: GET /tarefas");
         return ResponseEntity.ok(service.listar());
     }
+
+    // Retorna todas as tarefas concluidas
+    @GetMapping("/concluidos")
+    public ResponseEntity<List<Tarefa>> listarConcluidos(){
+       System.out.println("[Controller] Requisição recebida: GET /tarefas/concluidos");
+       return ResponseEntity.ok(service.listarConcluidos());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Tarefa> buscar(@PathVariable Long id) {
         System.out.println("[CONTROLLER] Requisição recebida: GET /tarefas/" + id);
