@@ -1,28 +1,27 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Tarefa;
+import com.example.demo.model.Task;
 import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 @Repository
-public class TarefaRepository {
-    private final Map<Long, Tarefa> banco = new LinkedHashMap<>();
+public class TaskRepository {
+    private final Map<Long, Task> banco = new LinkedHashMap<>();
     private final AtomicLong sequencia = new AtomicLong();
-    public Tarefa salvar(String titulo) {
+    public Task salvar(String titulo) {
         System.out.println("[REPOSITORY] Salvando tarefa em memória: " + titulo);
         Long id = sequencia.incrementAndGet();
-        Tarefa tarefa = new Tarefa(id, titulo, false);
+        Task tarefa = new Task(id, titulo, false);
         banco.put(id, tarefa);
         return tarefa;
     }
-    public List<Tarefa> listarTodas() {
+    public List<Task> listarTodas() {
         System.out.println("[REPOSITORY] Buscando todas as tarefas em memória");
         return new ArrayList<>(banco.values());
     }
 
-    public Optional<Tarefa> buscarPorId(Long id) {
+    public Optional<Task> buscarPorId(Long id) {
         System.out.println("[REPOSITORY] Buscando tarefa por id: " + id);
         return Optional.ofNullable(banco.get(id));
     }

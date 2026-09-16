@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.TaskResponseDTO;
 import com.example.demo.model.Tarefa;
-import com.example.demo.service.TarefaService;
+import com.example.demo.service.TaskService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -9,17 +10,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/tarefas")
-public class TarefaController {
-    private final TarefaService service;
-    public TarefaController(TarefaService service) {
+public class TaskController {
+    private final TaskService service;
+    public TaskController(TaskService service) {
         this.service = service;
     }
     @PostMapping
-    public ResponseEntity<Tarefa> criar(@RequestBody Map<String, String>
-                                                corpo) {
-        System.out.println("[CONTROLLER] Requisição recebida: POST/tarefas");
-                Tarefa tarefa = service.criar(corpo.get("titulo"));
-        return ResponseEntity.ok(tarefa);
+    public ResponseEntity<TaskResponseDTO> criar(@RequestBody Map<String, String>
+     TaskResponse                                            corpo) {
     }
     @GetMapping
     public ResponseEntity<List<Tarefa>> listar() {
