@@ -3,7 +3,6 @@ package com.example.demo.model;
 import java.time.LocalDate;
 
 public class Task {
-
     private Long id;
     private String titulo;
     private String descricao;
