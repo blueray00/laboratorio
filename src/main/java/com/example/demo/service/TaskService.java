@@ -18,13 +18,13 @@ public class TaskService {
     }
 
     public TaskResponseDTO criar(TaskRequestDTO dto) {
-        Task tarefa = new Task(
+        Task task = new Task(
                 dto.titulo(),
                 dto.descricao(),
                 dto.prazo()
         );
 
-        Task salva = repository.salvar(tarefa);
+        Task salva = repository.salvar(task);
 
         return toResponseDTO(salva);
     }

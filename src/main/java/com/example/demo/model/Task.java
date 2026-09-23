@@ -13,11 +13,14 @@ public class Task {
     public Task(Long id, String titulo, String descricao, LocalDate prazo) {
         this.id = id;
         this.titulo = titulo;
-        this.descricao = descricao;
-        this.prazo = prazo;
+        this.descricao=descricao;
+        this.prazo=prazo;
         this.concluida = false;
-        this.prioridade = "alta";
-        System.out.println("Criando Task...");
+        this.prioridade="alta";
+        System.out.println("Criando Tarefa...");
+    }
+
+    public Task(String titulo, String descricao, LocalDate prazo) {
     }
 
     public Long getId() {
@@ -32,7 +35,7 @@ public class Task {
         return concluida;
     }
 
-    public String getPrioridade() {
+    public String getPrioridade(){
         return this.prioridade;
     }
 
